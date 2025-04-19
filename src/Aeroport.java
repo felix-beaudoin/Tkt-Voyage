@@ -5,8 +5,8 @@ Aeroport(String id, String city) {
 }
 
     @Override
-    public String getType() {
-        return "Aéroport";
+    public TypeTrajet getType() {
+        return TypeTrajet.AÉRIEN;
     }
 
     @Override

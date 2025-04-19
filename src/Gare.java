@@ -4,8 +4,8 @@ public class Gare extends Terminal {
     }
 
     @Override
-    public String getType() {
-        return "Gare";
+    public TypeTrajet getType() {
+        return TypeTrajet.FERROVIAIRE;
     }
 
     @Override

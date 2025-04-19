@@ -3,8 +3,8 @@ public class CompagnieFerroviaire extends Compagnie {
         super(id, nom);
     }
 
-    public String getType() {
-        return "Aérienne";
+    public TypeTrajet getType() {
+        return TypeTrajet.FERROVIAIRE;
     }
 
     public void accept(CompagnieVisitor visitor) {

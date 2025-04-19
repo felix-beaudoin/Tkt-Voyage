@@ -19,7 +19,7 @@ public abstract class Terminal  {
         return city;
     }
 
-    public abstract String getType();
+    public abstract TypeTrajet getType();
 
     public String toString() {
         return String.format( getType() + " - [" + getCode() + "] " + getCity() );

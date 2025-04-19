@@ -4,8 +4,8 @@ public class Port extends Terminal {
     }
 
     @Override
-    public String getType() {
-        return "Port";
+    public TypeTrajet getType() {
+        return TypeTrajet.NAVAL;
     }
 
     @Override

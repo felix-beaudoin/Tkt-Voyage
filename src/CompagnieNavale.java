@@ -3,8 +3,8 @@ public class CompagnieNavale extends Compagnie {
         super(id, nom);
     }
 
-    public String getType() {
-        return "Navale";
+    public TypeTrajet getType() {
+        return TypeTrajet.NAVAL;
     }
 
     public void accept(CompagnieVisitor visitor) {

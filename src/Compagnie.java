@@ -13,7 +13,7 @@ public abstract class Compagnie  {
 
     public String getNom() { return nom; }
 
-    public abstract String getType();
+    public abstract TypeTrajet getType();
 
     public String toString() {
         return String.format( getType() + " - [" + getId() + "] " + getNom());
