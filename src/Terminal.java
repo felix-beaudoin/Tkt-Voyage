@@ -1,23 +1,18 @@
 /**
  * Classe abstraite représentant un terminal (aéroport, port, gare).
  */
-public abstract class Terminal extends Observable {
+public abstract class Terminal  {
 
+    private final String id; // six lettres uniques
+    private String city;
 
-
-    private final String code; // six lettres uniques
-    private final String city;
-
-    public Terminal(String code, String city) {
-        if (code == null || code.length() != 3) {
-            throw new IllegalArgumentException("Le code doit contenir exactement 6 lettres majuscules");
-        }
-        this.code = code;
+    public Terminal(String id, String city) {
+        this.id = id;
         this.city = city;
     }
 
     public String getCode() {
-        return code;
+        return id;
     }
 
     public String getCity() {
@@ -27,13 +22,13 @@ public abstract class Terminal extends Observable {
     public abstract String getType();
 
     public String toString() {
-        return String.format( getType() + " - [" + code + "] " + city );
+        return String.format( getType() + " - [" + getCode() + "] " + getCity() );
     }
 
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Terminal terminal)) return false;
-        return code.equals(terminal.code);
+        return id.equals(terminal.id);
     }
 
     public abstract void accept(TerminalVisitor visitor); // Patron visiteur

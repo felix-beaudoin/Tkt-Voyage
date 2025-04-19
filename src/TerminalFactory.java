@@ -17,32 +17,32 @@ public class TerminalFactory {
         return instance;
     }
 
-    public Terminal createTerminal(String type, String code, String city) {
-        code = code.toUpperCase();
+    public Terminal createTerminal(String type, String id, String city) {
+        id = id.toUpperCase();
 
-        if (terminals.containsKey(code)) {
-            return terminals.get(code);
+        if (terminals.containsKey(id)) {
+            return terminals.get(id);
         }
 
         Terminal terminal;
         switch (type.toLowerCase()) {
-            case "aeroport":
-                terminal = new Aeroport(code, city);
+            case "aéroport":
+                terminal = new Aeroport(id, city);
                 break;
             case "port":
-                terminal = new Port(code, city);
+                terminal = new Port(id, city);
                 break;
             case "gare":
-                terminal = new Gare(code, city);
+                terminal = new Gare(id, city);
                 break;
             default:
                 throw new IllegalArgumentException("Type inconnu: " + type);
         }
-        terminals.put(code, terminal);
+        terminals.put(id, terminal);
         return terminal;
     }
 
-    public Terminal getTerminal(String code) {
-        return terminals.get(code.toUpperCase());
+    public Terminal getTerminal(String id) {
+        return terminals.get(id.toUpperCase());
     }
 }

@@ -1,15 +1,15 @@
 public class Gare extends Terminal {
-    Gare(String code, String city) {
-        super(code, city);
+    Gare(String id, String city) {
+        super(id, city);
     }
 
     @Override
     public String getType() {
-        return "";
+        return "Gare";
     }
 
     @Override
     public void accept(TerminalVisitor visitor) {
-
+        visitor.visit(this);
     }
 }

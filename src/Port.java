@@ -1,15 +1,15 @@
 public class Port extends Terminal {
-    Port(String code, String city) {
-        super(code, city);
+    Port(String id, String city) {
+        super(id, city);
     }
 
     @Override
     public String getType() {
-        return "";
+        return "Port";
     }
 
     @Override
     public void accept(TerminalVisitor visitor) {
-
+        visitor.visit(this);
     }
 }
