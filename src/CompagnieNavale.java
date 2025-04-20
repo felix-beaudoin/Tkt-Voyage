@@ -10,5 +10,4 @@ public class CompagnieNavale extends Compagnie {
     public void accept(CompagnieVisitor visitor) {
         visitor.visit(this);
     }
-
 }
