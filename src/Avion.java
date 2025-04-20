@@ -1,22 +1,13 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Avion {
+public class Avion extends Vehicule{
     int nbRangeeDisponible;
-    public enum TypeSection {
-        F, // Première
-        A, // Affaire
-        P, // Économique Premium
-        E  // Économique
-    }
 
-    public enum TypeDisposition {
-        S, C, M, L
-    }
+    Map<TypeSection, Integer> sections = new HashMap<>();// (type, nb de place)
 
-    Map<TypeSection, Integer> sections = new HashMap<>();
-
-    public Avion()   {
+    public Avion(TypeTrajet type) {
+        super(type);
         nbRangeeDisponible = 100;
     }
 
@@ -43,5 +34,7 @@ public class Avion {
         return true;
     }
 
-
+    public boolean deleteSection(TypeSection section, int n) {
+        return false;
+    }
 }

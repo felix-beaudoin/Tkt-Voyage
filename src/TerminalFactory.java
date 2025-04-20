@@ -17,7 +17,7 @@ public class TerminalFactory {
         return instance;
     }
 
-    public Terminal createTerminal(String type, String id, String city) {
+    public Terminal createTerminal(TypeTrajet type, String id, String city) {
         id = id.toUpperCase();
 
         if (terminals.containsKey(id)) {
@@ -25,14 +25,14 @@ public class TerminalFactory {
         }
 
         Terminal terminal;
-        switch (type.toLowerCase()) {
-            case "aéroport":
+        switch (type) {
+            case TypeTrajet.AÉRIEN:
                 terminal = new Aeroport(id, city);
                 break;
-            case "port":
+            case TypeTrajet.NAVAL:
                 terminal = new Port(id, city);
                 break;
-            case "gare":
+            case TypeTrajet.FERROVIAIRE:
                 terminal = new Gare(id, city);
                 break;
             default:
@@ -40,6 +40,29 @@ public class TerminalFactory {
         }
         terminals.put(id, terminal);
         return terminal;
+    }
+
+    public Terminal deleteTerminal(String id) {
+        id = id.toUpperCase();
+
+        if (terminals.containsKey(id)) {
+            return terminals.remove(id);
+        }
+        return null;
+    }
+
+    public Terminal modifyTerminal(String id, String nom) {
+        id = id.toUpperCase();
+        Terminal terminal;
+        if (terminals.containsKey(id)) {
+            terminal = terminals.remove(id);
+        } else {
+            return null;
+        }
+        Terminal newTerminal = createTerminal(terminal.getType(), id, nom);
+        terminals.put(id, newTerminal);
+        return terminal;
+
     }
 
     public Terminal getTerminal(String id) {

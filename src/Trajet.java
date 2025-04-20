@@ -7,9 +7,11 @@ public abstract class Trajet {
     private final Compagnie compagnie;
     private final LocalDateTime depart;
     private final LocalDateTime arrive;
+    private final TypeTrajet typeTrajet;
+    private final Vehicule vehicule;
 
-    protected Trajet(String id, Terminal origine, Terminal destination, Compagnie compagnie,
-                     LocalDateTime depart, LocalDateTime arrive) {
+    protected Trajet(TypeTrajet typeTrajet, String id, Terminal origine, Terminal destination, Compagnie compagnie,
+                     LocalDateTime depart, LocalDateTime arrive, Vehicule vehicule) {
         if (origine.equals(destination)) {
             throw new IllegalArgumentException("Le terminal d'origine et de destination doivent être différents");
         }
@@ -19,6 +21,8 @@ public abstract class Trajet {
         this.compagnie = compagnie;
         this.depart = depart;
         this.arrive = arrive;
+        this.typeTrajet = typeTrajet;
+        this.vehicule = vehicule;
     }
 
     public String getId() {
@@ -37,6 +41,10 @@ public abstract class Trajet {
         return compagnie;
     }
 
+    public TypeTrajet getTypeTrajet() {
+        return typeTrajet;
+    }
+
     public LocalDateTime getDepart() {
         return depart;
     }
@@ -52,6 +60,10 @@ public abstract class Trajet {
     public abstract void accept(TrajetVisitor visitor);
 
     public String toString() {
-        return String.format(origin.getCode() + '-' + destination.getCode() + ":[" + compagnie.getNom() + "]" + id + '(' + depart + '-' + arrive + ')');
+        return String.format(origin.getId() + '-' + destination.getId() + ":[" + compagnie.getNom() + "]" + id + '(' + depart + '-' + arrive + ')');
+    }
+
+    public Vehicule getVehicule() {
+        return vehicule;
     }
 }

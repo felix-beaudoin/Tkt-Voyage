@@ -11,7 +11,7 @@ public abstract class Terminal  {
         this.city = city;
     }
 
-    public String getCode() {
+    public String getId() {
         return id;
     }
 
@@ -22,7 +22,7 @@ public abstract class Terminal  {
     public abstract TypeTrajet getType();
 
     public String toString() {
-        return String.format( getType() + " - [" + getCode() + "] " + getCity() );
+        return String.format( getType() + " - [" + getId() + "] " + getCity() );
     }
 
     public boolean equals(Object o) {
