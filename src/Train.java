@@ -3,7 +3,7 @@ import java.util.Map;
 
 public class Train extends Vehicule {
 
-
+    Map<TypeSection, Integer> disponibilite = new HashMap<>();
     Map<TypeSection, Integer> sections = new HashMap<>();
 
     public Train(TypeTrajet type) {
