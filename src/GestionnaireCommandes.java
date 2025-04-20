@@ -4,8 +4,10 @@ public class GestionnaireCommandes {
     private final Stack<Commande> historique = new Stack<>();
 
     public void executerCommande(Commande commande) {
-        commande.execute();
-        historique.push(commande);
+        if (commande != null) {
+            commande.execute();
+            historique.push(commande);
+        }
     }
 
     public void annulerDerniereCommande() {

@@ -1,5 +1,3 @@
-
-
 public abstract class Vehicule {
     public final TypeTrajet type;
 

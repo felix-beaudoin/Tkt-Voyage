@@ -16,6 +16,7 @@ public class AffichageAdminVisiteur implements TrajetVisitor {
                 .append(")")
                 .append("100$");
         }
+        System.out.println(sb.toString());
     }
 
     public void visit(Itineraire itineraire) {
@@ -32,6 +33,8 @@ public class AffichageAdminVisiteur implements TrajetVisitor {
                     .append(bateau.sections.get(type))
                     .append(")");
         }
+        System.out.println(sb.toString());
+
     }
     public void visit(TrajetFerroviaire trajetFerroviaire) {
         StringBuilder sb = createString(trajetFerroviaire);
@@ -47,7 +50,7 @@ public class AffichageAdminVisiteur implements TrajetVisitor {
                     .append(train.sections.get(type))
                     .append(")");
         }
-
+        System.out.println(sb.toString());
     }
 
     private StringBuilder createString(Trajet trajet) {

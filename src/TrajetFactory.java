@@ -15,6 +15,10 @@ public class TrajetFactory {
         return instance;
     }
 
+    public Trajet getTrajet(String id) {
+        return trajets.get(id);
+    }
+
     public Trajet createTrajet(TypeTrajet type, String id, Terminal origin, Terminal destination, Compagnie compagnie,
                                LocalDateTime depart, LocalDateTime arrivee, Vehicule vehicule) {
         id = id.toUpperCase();
