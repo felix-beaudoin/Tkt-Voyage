@@ -4,12 +4,51 @@ public class AffichageAdminVisiteur implements TrajetVisitor {
         StringBuilder sb = createString(vol);
 
         Avion avion = (Avion) vol.getVehicule();
-        avion.sections.get(TypeSection.P);
 
+        for (TypeSection type : avion.sections.keySet()) {
+            sb.append("|")
+                .append(type)
+                .append(avion.disponibilite.get(type))
+                .append("(")
+                .append(avion.sections.get(type))
+                .append("/")
+                .append(avion.dispositions.get(type))
+                .append(")")
+                .append("100$");
+        }
     }
 
-    public void visit(Itineraire itineraire) {}
-    public void visit(TrajetFerroviaire trajetFerroviaire) {}
+    public void visit(Itineraire itineraire) {
+        StringBuilder sb = createString(itineraire);
+
+        Bateau bateau = (Bateau) itineraire.getVehicule();
+
+        for (TypeSection type : bateau.disponibiliteSection.keySet()) {
+            sb.append("|")
+                    .append(type)
+                    .append("(")
+                    .append(bateau.disponibiliteSection.get(type))
+                    .append("/")
+                    .append(bateau.sections.get(type))
+                    .append(")");
+        }
+    }
+    public void visit(TrajetFerroviaire trajetFerroviaire) {
+        StringBuilder sb = createString(trajetFerroviaire);
+
+        Train train = (Train) trajetFerroviaire.getVehicule();
+
+        for (TypeSection type : train.sections.keySet()) {
+            sb.append("|")
+                    .append(type)
+                    .append("(")
+                    .append(train.disponibilite.get(type))
+                    .append("/")
+                    .append(train.sections.get(type))
+                    .append(")");
+        }
+
+    }
 
     private StringBuilder createString(Trajet trajet) {
         StringBuilder sb = new StringBuilder();
@@ -25,7 +64,7 @@ public class AffichageAdminVisiteur implements TrajetVisitor {
                 .append(trajet.getDepart())
                 .append("-")
                 .append(trajet.getArrive())
-                .append(")|");
+                .append(")");
         return sb;
     }
 }
