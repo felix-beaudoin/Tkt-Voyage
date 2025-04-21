@@ -10,6 +10,8 @@ Ce projet est une plateforme de gestion de réservations de voyages permettant d
 
     Mettre en œuvre des design patterns pour améliorer la flexibilité et la réutilisabilité du code.
 
+    Pour pouvoir rouler le projet , seulement lancer la fonction Main dans un terminal puisque l'app est un CLI !!
+
 🧱 Architecture
 
 Le système repose sur plusieurs patrons de conception :
@@ -53,8 +55,8 @@ Le système repose sur plusieurs patrons de conception :
 👨‍💻 Auteurs
 
     Équipe :    Karl Desjardins(20196433)
-                Felix Beaudoin ()
-                Francis
+                Felix Beaudoin (20244864)
+                Francis Roy-Chouinard (20143721)
 
 
     Cours : 3911 - Analyse et conception des logiciels
